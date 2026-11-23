@@ -9,7 +9,7 @@ backend:
 local_backend: true
 
 locale: pt
-site_url: https://mzrcode.com.br
+site_url: https://mzrcode.netlify.app
 media_folder: public/uploads
 public_folder: /uploads
 

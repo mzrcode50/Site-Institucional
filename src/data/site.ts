@@ -5,7 +5,7 @@ const toWa = (display: string) => '55' + display.replace(/\D/g, '');
 
 export const site = {
   name: settings.name,
-  url: 'https://mzrcode.com.br', // TODO: trocar quando registrarmos o domínio
+  url: 'https://mzrcode.netlify.app', // TODO: trocar quando registrarmos o domínio
   tagline: settings.tagline,
   taglineLong: settings.taglineLong,
   region: settings.region,
