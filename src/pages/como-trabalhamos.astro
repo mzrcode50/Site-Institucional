@@ -1,0 +1,47 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { waLink } from '../data/site';
+
+import data from '../content/steps.json';
+const steps = data.items.map((s) => [s.title, s.description]);
+---
+<Layout
+  title="Como trabalhamos: do primeiro contato ao suporte | MzRCode"
+  description="Veja como a MzRCode conduz cada projeto: conversa, proposta, construção, entrega e suporte, com transparência em todas as etapas."
+>
+  <section class="page-hero sec-dark">
+    <div class="container">
+      <span class="eyebrow">Como trabalhamos</span>
+      <h1>Com você até o fim</h1>
+      <p>Um processo simples e transparente, para você saber sempre em que etapa estamos.</p>
+    </div>
+  </section>
+
+  <section class="section sec-teal">
+    <div class="container">
+      <div class="steps">
+        {steps.map(([t, d]) => <div class="step"><h3>{t}</h3><p>{d}</p></div>)}
+      </div>
+    </div>
+  </section>
+
+  <section class="section sec-light">
+    <div class="container" style="max-width:820px">
+      <span class="eyebrow">Nosso compromisso</span>
+      <h2>O que você pode esperar da gente</h2>
+      <ul class="muted" style="padding-left:20px;font-size:1.05rem">
+        <li>Comunicação direta, em português claro, sem jargão.</li>
+        <li>Prazos e valores combinados antes de começar.</li>
+        <li>Entregas parciais para você ver o projeto evoluindo.</li>
+        <li>Suporte depois do projeto no ar.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section sec-ambar cta">
+    <div class="container cta-inner">
+      <div><h2>Vamos dar o primeiro passo?</h2><p style="margin:0">Uma conversa rápida já ajuda a desenhar o caminho.</p></div>
+      <a class="btn btn-dark" href={waLink()} target="_blank" rel="noopener">Chamar no WhatsApp</a>
+    </div>
+  </section>
+</Layout>

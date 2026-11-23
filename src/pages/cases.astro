@@ -1,0 +1,47 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { waLink } from '../data/site';
+import data from '../content/cases.json';
+// Os cases ficam em src/content/cases.json (editável pelo CMS em /admin).
+// TODO: quando os clientes fecharem e autorizarem, trocar por cases reais (nome, problema, solução, resultado, depoimento).
+---
+<Layout
+  title="Cases e projetos | MzRCode"
+  description="Conheça os projetos em andamento da MzRCode: sistema de fluxo de caixa e sites institucionais para pequenos negócios."
+>
+  <section class="page-hero sec-dark">
+    <div class="container">
+      <span class="eyebrow">Cases</span>
+      <h1>Projetos que estamos construindo</h1>
+      <p>Somos uma empresa nova, e nossos primeiros projetos já estão em andamento. Aqui você acompanha o que fazemos.</p>
+    </div>
+  </section>
+
+  <section class="section sec-dark" style="padding-top:0">
+    <div class="container cards">
+      {data.items.map((c, i) => (
+        <article class="case">
+          <div class="case-body">
+            <span class={`badge ${i % 2 === 1 ? 't' : ''}`}>{c.status}</span>
+            <h3>{c.title}</h3>
+            {c.challenge || c.solution ? (
+              <>
+                {c.challenge && <p><strong style="color:var(--gelo)">O desafio:</strong> {c.challenge}</p>}
+                {c.solution && <p style="margin-top:10px"><strong style="color:var(--gelo)">A solução:</strong> {c.solution}</p>}
+              </>
+            ) : (
+              <p>{c.text}</p>
+            )}
+          </div>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="section sec-ambar cta">
+    <div class="container cta-inner">
+      <div><h2>Quer ver o seu negócio aqui?</h2><p style="margin:0">Vamos conversar sobre o seu projeto.</p></div>
+      <a class="btn btn-dark" href={waLink()} target="_blank" rel="noopener">Peça um orçamento</a>
+    </div>
+  </section>
+</Layout>

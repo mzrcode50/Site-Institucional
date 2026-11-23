@@ -1,0 +1,13 @@
+---
+// Ícones de linha reutilizáveis (stroke herdado do CSS .card .icon svg)
+const { name } = Astro.props;
+const paths = {
+  site: '<rect x="3" y="4" width="18" height="14" rx="2"/><path d="M3 9h18M8 21h8M12 18v3"/>',
+  sistema: '<path d="M4 19V9M10 19V5M16 19v-7M22 19H2"/><circle cx="16" cy="7" r="2"/>',
+  auto: '<path d="M13 2 4 14h7l-1 8 9-12h-7l1-8Z"/>',
+  app: '<rect x="7" y="2" width="10" height="20" rx="2"/><path d="M11 18h2"/>',
+  integra: '<path d="M10 13a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-1 1"/><path d="M14 11a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7l1-1"/>',
+  suporte: '<path d="M3 12a9 9 0 0 1 18 0v5a2 2 0 0 1-2 2h-1v-6h3M3 13h3v6H5a2 2 0 0 1-2-2v-4Z"/>',
+};
+---
+<svg viewBox="0 0 24 24" aria-hidden="true" set:html={paths[name]} />

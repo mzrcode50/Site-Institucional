@@ -1,0 +1,9 @@
+{
+  "items": [
+    { "title": "Conversa", "short": "Entendemos o seu negócio, a sua rotina e o que está travando.", "description": "Começamos ouvindo. Entendemos o seu negócio, a rotina da sua equipe e o problema que você quer resolver. Pode ser por WhatsApp ou reunião online." },
+    { "title": "Proposta", "short": "Você recebe escopo, prazo e valor claros, sem letra miúda.", "description": "Você recebe uma proposta clara com o que será feito, o prazo e o valor. Sem letra miúda e sem surpresas." },
+    { "title": "Construção", "short": "Desenvolvemos com entregas parciais para você acompanhar de perto.", "description": "Desenvolvemos em etapas curtas e mostramos o andamento. Você acompanha, opina e ajusta a rota ainda no caminho." },
+    { "title": "Entrega", "short": "Colocamos no ar, treinamos você e a sua equipe.", "description": "Colocamos no ar, testamos tudo com você e treinamos a sua equipe para usar com segurança." },
+    { "title": "Suporte", "short": "Seguimos com você: ajustes, melhorias e evolução.", "description": "Depois da entrega seguimos juntos: correções, ajustes e novas funcionalidades quando o negócio crescer." }
+  ]
+}

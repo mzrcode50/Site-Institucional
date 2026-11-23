@@ -1,0 +1,95 @@
+---
+import '../styles/global.css';
+import Logo from '../components/Logo.astro';
+import WhatsAppIcon from '../components/WhatsAppIcon.astro';
+import { site, nav, waLink } from '../data/site';
+
+interface Props { title: string; description: string; }
+const { title, description } = Astro.props;
+const path = Astro.url.pathname;
+const canonical = new URL(path, site.url).href;
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'ProfessionalService',
+  name: site.name,
+  url: site.url,
+  description: 'Desenvolvimento de sites institucionais e sistemas sob medida para empresas.',
+  telephone: '+55' + site.phones[0].wa.slice(2),
+  slogan: site.tagline,
+  ...(site.email ? { email: site.email } : {}),
+  areaServed: ['São Paulo', 'Mauá', 'Santo André', 'São Bernardo do Campo', 'São Caetano do Sul'].map((n) => ({ '@type': 'City', name: n })),
+  address: { '@type': 'PostalAddress', addressRegion: 'SP', addressCountry: 'BR' },
+};
+---
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#111827" />
+    <link rel="canonical" href={canonical} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="pt_BR" />
+    <meta property="og:site_name" content={site.name} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta name="twitter:card" content="summary" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Sora:wght@400;600;700;800&display=swap" rel="stylesheet" />
+    <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container header-inner">
+        <a href="/" class="brand" aria-label="MzRCode — página inicial">
+          <Logo id="logo-header" /><span class="brand-code">Code</span>
+        </a>
+        <input type="checkbox" id="menu-toggle" class="menu-toggle" aria-label="Abrir menu" />
+        <label for="menu-toggle" class="menu-btn" aria-hidden="true"><span></span><span></span><span></span></label>
+        <nav class="nav" aria-label="Principal">
+          {nav.map((i) => <a href={i.href} aria-current={path === i.href ? 'page' : undefined}>{i.label}</a>)}
+          <a class="btn btn-primary" href={waLink()} target="_blank" rel="noopener">Peça um orçamento</a>
+        </nav>
+      </div>
+    </header>
+
+    <main><slot /></main>
+
+    <footer class="site-footer">
+      <div class="container">
+        <div class="footer-grid">
+          <div>
+            <a href="/" class="brand" style="color:var(--gelo);margin-bottom:14px"><Logo id="logo-footer" /><span class="brand-code">Code</span></a>
+            <p>{site.taglineLong}</p>
+            <p>Atendemos {site.region}.</p>
+          </div>
+          <div>
+            <h4>Navegação</h4>
+            <ul>{nav.map((i) => <li><a href={i.href}>{i.label}</a></li>)}</ul>
+          </div>
+          <div>
+            <h4>Fale com a gente</h4>
+            <ul>
+              {site.phones.map((p) => <li><a href={waLink(undefined, p.wa)} target="_blank" rel="noopener">WhatsApp {p.display}</a></li>)}
+              {site.email && <li><a href={`mailto:${site.email}`}>{site.email}</a></li>}
+            </ul>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <span>© {new Date().getFullYear()} {site.name}. Todos os direitos reservados.</span>
+          <span>Feito com <span style="color:var(--ambar)">código</span> e compromisso.</span>
+        </div>
+      </div>
+    </footer>
+
+    <a class="wa-float" href={waLink()} target="_blank" rel="noopener" aria-label="Falar com a MzRCode no WhatsApp">
+      <WhatsAppIcon /><span>Fale no WhatsApp</span>
+    </a>
+  </body>
+</html>

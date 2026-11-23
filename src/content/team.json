@@ -1,0 +1,16 @@
+{
+  "members": [
+    {
+      "name": "Eduardo Ribeiro",
+      "role": "Sócio-fundador · Tecnologia",
+      "bio": "Responsável pelo desenvolvimento tecnológico, criando sites e sistemas personalizados, com foco em qualidade, segurança e soluções que atendam às necessidades de cada negócio.",
+      "photo": "/uploads/team/eduardo.jpg"
+    },
+    {
+      "name": "Matheus Ramos",
+      "role": "Sócio-fundador · Negócios",
+      "bio": "Responsável pela área comercial e pelo relacionamento com os clientes, identificando oportunidades e entendendo as necessidades de cada negócio para oferecer soluções que gerem valor e resultados.",
+      "photo": "/uploads/team/matheus.jpg"
+    }
+  ]
+}

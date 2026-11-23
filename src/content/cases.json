@@ -1,0 +1,7 @@
+{
+  "items": [
+    { "status": "Em andamento", "title": "Sistema de fluxo de caixa", "challenge": "uma empresa precisa controlar entradas e saídas com clareza.", "solution": "um sistema sob medida com visão do caixa, categorias e relatórios.", "text": "Controle econômico completo para uma empresa: entradas, saídas e visão clara do caixa." },
+    { "status": "Em andamento", "title": "Site institucional", "challenge": "um negócio local precisa ser encontrado e passar confiança online.", "solution": "um site rápido, otimizado para o Google, com contato direto pelo WhatsApp.", "text": "Presença digital profissional para pequenos negócios, com foco em ser encontrado e em gerar contatos." },
+    { "status": "Em breve", "title": "O seu projeto pode ser o próximo", "challenge": "", "solution": "", "text": "Estamos abertos a novos desafios e a construir junto com você." }
+  ]
+}

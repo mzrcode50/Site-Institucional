@@ -1,0 +1,11 @@
+{
+  "name": "MzRCode",
+  "tagline": "Seu negócio, nosso código.",
+  "taglineLong": "Sem medo de inovar. Seu negócio, nosso código. Com você até o fim.",
+  "region": "São Paulo, Mauá e região",
+  "email": "mzrcode50@gmail.com",
+  "phones": [
+    { "label": "Principal", "number": "(11) 97371-3969" },
+    { "label": "Secundário", "number": "(11) 92188-2701" }
+  ]
+}

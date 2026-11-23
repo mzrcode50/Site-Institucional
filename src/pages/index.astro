@@ -1,0 +1,123 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Icons from '../components/Icons.astro';
+import { site, waLink } from '../data/site';
+
+import servicesData from '../content/services.json';
+import stepsData from '../content/steps.json';
+import casesData from '../content/cases.json';
+const services = servicesData.items.slice(0, 3).map((s) => ({ icon: s.icon, t: s.title, d: s.description }));
+const steps = stepsData.items.map((s) => [s.title, s.short]);
+const homeCases = casesData.items.slice(0, 2);
+---
+<Layout
+  title="Desenvolvimento de sites e sistemas em São Paulo e Mauá | MzRCode"
+  description="A MzRCode cria sites institucionais e sistemas sob medida para empresas de São Paulo, Mauá e região. Seu negócio, nosso código. Peça um orçamento pelo WhatsApp."
+>
+  <!-- HERO -->
+  <section class="hero sec-dark">
+    <svg class="hero-art" viewBox="0 0 78 48" aria-hidden="true">
+      <defs><linearGradient id="hero-g" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#FBBF24"/><stop offset="1" stop-color="#2DD4BF"/></linearGradient></defs>
+      <path d="M5 38 V10 L17 26 L29 10 H45 L29 38 H53 V10 H63 C72 10 72 26 63 26 H53 L73 38" fill="none" stroke="url(#hero-g)" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    <div class="container" style="position:relative">
+      <span class="hero-tag">● São Paulo, Mauá e região</span>
+      <h1>A gente constrói o <em>sistema</em> que a sua empresa precisa</h1>
+      <p class="lead">{site.taglineLong}</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href={waLink()} target="_blank" rel="noopener">Peça um orçamento</a>
+        <a class="btn btn-outline" href="/como-trabalhamos/">Veja como trabalhamos</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- VALORES -->
+  <section class="sec-dark" style="padding:0 0 clamp(56px,8vw,88px)">
+    <div class="container values">
+      <div class="value"><strong>Credibilidade</strong><span>Transparência do orçamento à entrega.</span></div>
+      <div class="value"><strong>Tecnologia</strong><span>Soluções modernas, rápidas e seguras.</span></div>
+      <div class="value"><strong>Comprometimento</strong><span>Com você até o fim, e depois dele.</span></div>
+      <div class="value"><strong>Sem medo</strong><span>Topamos o desafio e propomos o novo.</span></div>
+    </div>
+  </section>
+
+  <!-- SERVIÇOS -->
+  <section class="section sec-light">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">O que fazemos</span>
+        <h2>Tecnologia sob medida, do site ao sistema completo</h2>
+        <p class="muted">Seja para colocar o seu negócio na internet ou para organizar a operação por dentro, a gente desenha, desenvolve e acompanha.</p>
+      </div>
+      <div class="cards">
+        {services.map((s) => (
+          <article class="card">
+            <div class="icon"><Icons name={s.icon} /></div>
+            <h3>{s.t}</h3>
+            <p>{s.d}</p>
+          </article>
+        ))}
+      </div>
+      <p style="margin-top:32px"><a href="/servicos/" style="font-weight:600;color:var(--turquesa-esc)">Ver todos os serviços →</a></p>
+    </div>
+  </section>
+
+  <!-- COMO TRABALHAMOS (turquesa predomina) -->
+  <section class="section sec-teal">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">Como trabalhamos</span>
+        <h2>Um processo simples, do primeiro papo ao suporte</h2>
+        <p class="muted">Você sabe em que etapa está e o que vem a seguir. Sem surpresa.</p>
+      </div>
+      <div class="steps">
+        {steps.map(([t, d]) => <div class="step"><h3>{t}</h3><p>{d}</p></div>)}
+      </div>
+    </div>
+  </section>
+
+  <!-- CASES -->
+  <section class="section sec-dark">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">Projetos</span>
+        <h2>O que estamos construindo</h2>
+        <p class="muted">Estamos começando, e já temos projetos em andamento para negócios reais.</p>
+      </div>
+      <div class="cards">
+        <article class="case">
+          <div class="case-visual">
+            <svg viewBox="0 0 200 110" aria-hidden="true"><g fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M10 100h180" stroke="#334155" stroke-width="2"/><path d="M20 80 L60 55 L95 68 L140 30 L185 15" stroke="#2DD4BF" stroke-width="4"/><rect x="25" y="85" width="14" height="15" fill="#FBBF24" stroke="none"/><rect x="75" y="75" width="14" height="25" fill="#FBBF24" stroke="none"/><rect x="125" y="60" width="14" height="40" fill="#FBBF24" stroke="none"/></g></svg>
+          </div>
+          <div class="case-body">
+            <span class="badge">{homeCases[0].status}</span>
+            <h3>{homeCases[0].title}</h3>
+            <p>{homeCases[0].text}</p>
+          </div>
+        </article>
+        <article class="case">
+          <div class="case-visual">
+            <svg viewBox="0 0 200 110" aria-hidden="true"><g fill="none" stroke-linecap="round" stroke-linejoin="round"><rect x="20" y="12" width="160" height="86" rx="8" stroke="#2DD4BF" stroke-width="3"/><path d="M20 32h160" stroke="#2DD4BF" stroke-width="3"/><rect x="36" y="46" width="60" height="10" rx="3" fill="#FBBF24" stroke="none"/><rect x="36" y="64" width="100" height="8" rx="3" fill="#334155" stroke="none"/><rect x="36" y="78" width="80" height="8" rx="3" fill="#334155" stroke="none"/></g></svg>
+          </div>
+          <div class="case-body">
+            <span class="badge t">{homeCases[1].status}</span>
+            <h3>{homeCases[1].title}</h3>
+            <p>{homeCases[1].text}</p>
+          </div>
+        </article>
+      </div>
+      <p style="margin-top:32px"><a href="/cases/" style="font-weight:600;color:var(--turquesa)">Ver projetos →</a></p>
+    </div>
+  </section>
+
+  <!-- CTA FINAL -->
+  <section class="section sec-ambar cta">
+    <div class="container cta-inner">
+      <div>
+        <h2>Vamos tirar a sua ideia do papel?</h2>
+        <p style="margin:0">Conte para a gente o que o seu negócio precisa. A conversa é sem compromisso.</p>
+      </div>
+      <a class="btn btn-dark" href={waLink()} target="_blank" rel="noopener">Chamar no WhatsApp</a>
+    </div>
+  </section>
+</Layout>

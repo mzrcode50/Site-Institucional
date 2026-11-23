@@ -1,0 +1,112 @@
+# Editor de conteúdo (Decap CMS) da MzRCode.
+# Uso local: rode `editar.bat` (ou `npm run cms` + `npm run dev`) e abra http://localhost:4321/admin/
+# Na publicação: trocar o backend abaixo pelo repositório do GitHub (TODO quando publicarmos).
+backend:
+  name: github
+  repo: mzrcode50/Site-Institucional
+  branch: main
+
+local_backend: true
+
+locale: pt
+site_url: https://mzrcode.com.br
+media_folder: public/uploads
+public_folder: /uploads
+
+collections:
+  - name: configuracoes
+    label: Configurações do site
+    files:
+      - name: geral
+        label: Dados da empresa
+        file: src/content/settings.json
+        fields:
+          - { name: name, label: Nome da empresa, widget: string }
+          - { name: tagline, label: Slogan curto, widget: string }
+          - { name: taglineLong, label: Slogan longo, widget: string }
+          - { name: region, label: Região de atendimento, widget: string }
+          - { name: email, label: E-mail de contato, widget: string, required: false }
+          - name: phones
+            label: Telefones (WhatsApp)
+            widget: list
+            summary: "{{fields.label}}: {{fields.number}}"
+            fields:
+              - { name: label, label: "Identificação (ex.: Principal)", widget: string }
+              - { name: number, label: "Número (ex.: (11) 97371-3969)", widget: string }
+
+  - name: equipe
+    label: Equipe
+    files:
+      - name: equipe
+        label: Sócios e equipe
+        file: src/content/team.json
+        fields:
+          - name: members
+            label: Pessoas
+            widget: list
+            summary: "{{fields.name}} — {{fields.role}}"
+            fields:
+              - { name: name, label: Nome, widget: string }
+              - { name: role, label: Cargo / papel, widget: string }
+              - { name: bio, label: Mini biografia, widget: text }
+              - { name: photo, label: Foto (quadrada, de preferência), widget: image, required: false }
+
+  - name: servicos
+    label: Serviços
+    files:
+      - name: servicos
+        label: Lista de serviços
+        file: src/content/services.json
+        fields:
+          - name: items
+            label: Serviços (os 3 primeiros aparecem na Home)
+            widget: list
+            summary: "{{fields.title}}"
+            fields:
+              - name: icon
+                label: Ícone
+                widget: select
+                options:
+                  - { label: Site, value: site }
+                  - { label: Sistema / gráfico, value: sistema }
+                  - { label: Automação (raio), value: auto }
+                  - { label: Integração (elo), value: integra }
+                  - { label: Aplicativo (celular), value: app }
+                  - { label: Suporte (fone), value: suporte }
+              - { name: title, label: Título, widget: string }
+              - { name: description, label: Descrição, widget: text }
+              - { name: bullets, label: Tópicos, widget: list, field: { name: item, label: Tópico, widget: string } }
+
+  - name: cases
+    label: Cases e projetos
+    files:
+      - name: cases
+        label: Lista de cases (os 2 primeiros aparecem na Home)
+        file: src/content/cases.json
+        fields:
+          - name: items
+            label: Projetos
+            widget: list
+            summary: "{{fields.title}} ({{fields.status}})"
+            fields:
+              - { name: status, label: "Status (ex.: Em andamento, Concluído)", widget: string }
+              - { name: title, label: Título, widget: string }
+              - { name: text, label: Resumo curto, widget: text }
+              - { name: challenge, label: O desafio (opcional), widget: text, required: false }
+              - { name: solution, label: A solução (opcional), widget: text, required: false }
+
+  - name: etapas
+    label: Como trabalhamos
+    files:
+      - name: etapas
+        label: Etapas do processo
+        file: src/content/steps.json
+        fields:
+          - name: items
+            label: Etapas
+            widget: list
+            summary: "{{fields.title}}"
+            fields:
+              - { name: title, label: Título, widget: string }
+              - { name: short, label: Texto curto (Home), widget: text }
+              - { name: description, label: Texto completo (página Como trabalhamos), widget: text }

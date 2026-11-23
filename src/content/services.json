@@ -1,0 +1,10 @@
+{
+  "items": [
+    { "icon": "site", "title": "Sites institucionais", "description": "A cara do seu negócio na internet, feita para ser encontrada e para converter visitas em conversas.", "bullets": ["Design profissional e responsivo (celular, tablet e PC)", "Otimização para o Google (SEO), incluindo busca local", "Botão de WhatsApp e formulários de contato", "Você edita os textos sem mexer em código"] },
+    { "icon": "sistema", "title": "Sistemas sob medida", "description": "Um sistema desenhado para o seu jeito de trabalhar, no lugar de se adaptar a um software genérico.", "bullets": ["Controle financeiro e fluxo de caixa", "Cadastro de clientes, estoque e vendas", "Painéis e relatórios para decidir com dados", "Acesso seguro, de qualquer lugar"] },
+    { "icon": "auto", "title": "Automações", "description": "Chega de planilha copiada e colada. Deixe as tarefas repetitivas com o computador.", "bullets": ["Rotinas automáticas de cobrança e avisos", "Geração de relatórios", "Importação e exportação de dados"] },
+    { "icon": "integra", "title": "Integrações", "description": "Conectamos os sistemas que você já usa para que conversem entre si.", "bullets": ["WhatsApp, e-mail e planilhas", "Meios de pagamento", "Outros sistemas e APIs"] },
+    { "icon": "app", "title": "Aplicativos", "description": "Quando o seu negócio pede algo no bolso do cliente ou da equipe.", "bullets": ["Apps web instaláveis (PWA)", "Versão para celular da sua operação"] },
+    { "icon": "suporte", "title": "Suporte e evolução", "description": "Depois que entra no ar, a gente continua. Seu sistema cresce junto com o seu negócio.", "bullets": ["Correções e ajustes", "Novas funcionalidades", "Acompanhamento próximo"] }
+  ]
+}

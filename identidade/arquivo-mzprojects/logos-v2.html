@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MzProjects — Logos v2</title>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{--grafite:#111827;--gelo:#F6F7FB;--aco:#64748B;--ambar:#FBBF24;--turquesa:#2DD4BF}
+  *{box-sizing:border-box;margin:0}
+  body{font-family:Inter,system-ui,sans-serif;background:var(--gelo);color:var(--grafite);line-height:1.6}
+  .wrap{max-width:1080px;margin:0 auto;padding:48px 16px}
+  h1,h2{font-family:Sora,sans-serif}
+  h1{font-size:clamp(28px,5vw,40px);font-weight:800}
+  h2{font-size:22px;margin:48px 0 6px}
+  .lead{color:var(--aco);max-width:64ch}
+  .grid{display:grid;gap:20px;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));margin-top:18px}
+  .card{border-radius:16px;overflow:hidden;border:1px solid #e2e6ee;background:#fff}
+  .stage{display:flex;align-items:center;justify-content:center;padding:36px 12px;min-height:140px}
+  .dark{background:var(--grafite);color:var(--gelo);--a:#FBBF24;--t:#2DD4BF;--ink:#F6F7FB;--bg:#111827}
+  .light{background:var(--gelo);color:var(--grafite);--a:#B45309;--t:#0F766E;--ink:#111827;--bg:#F6F7FB}
+  .lockup{display:flex;align-items:center;gap:12px}
+  .lockup svg{height:52px;width:auto;flex:none}
+  .word{font-family:Sora;font-size:28px;letter-spacing:-.5px;white-space:nowrap}
+  .word b{font-weight:800}.word span{font-weight:400}
+  .slogan{font:500 11px Inter;letter-spacing:.18em;text-transform:uppercase;opacity:.7;margin-top:2px}
+  .tagline{margin-top:24px;background:var(--grafite);color:var(--gelo);border-radius:20px;padding:40px 28px}
+  .tagline p{font:800 clamp(22px,4vw,34px) Sora;line-height:1.25;max-width:26ch}
+  .tagline em{font-style:normal;color:var(--ambar)}
+  .tagline i{font-style:normal;color:var(--turquesa)}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Logos v2 — sempre M + Z</h1>
+  <p class="lead">Cinco novas direções usando as duas letras. Todas em versão escura e clara.</p>
+  <div id="out"></div>
+
+  <h2>Slogan longo (pontuação revisada)</h2>
+  <p class="lead">Está correto como colado: três frases curtas, cada uma com ponto final.</p>
+  <div class="tagline"><p><i>Sem medo de inovar.</i> <em>Seu negócio, nosso código.</em> Com você até o fim.</p></div>
+</div>
+
+<script>
+let n = 0;
+const uid = () => 'g' + (n++);
+
+const logos = [
+  { id:'D', name:'Selo hexagonal',
+    desc:'Hexágono (remete a módulo, peça de encaixe) com M âmbar e Z turquesa. Muito forte como selo e favicon.',
+    word:'full',
+    icon:() => `<svg viewBox="0 0 48 48"><path d="M24 3 L43 14 V34 L24 45 L5 34 V14 Z" fill="var(--bg)" stroke="var(--t)" stroke-width="3" stroke-linejoin="round"/><text x="24" y="30" text-anchor="middle" font-family="Sora" font-weight="800" font-size="17"><tspan fill="var(--a)">M</tspan><tspan fill="var(--t)">Z</tspan></text></svg>` },
+  { id:'E', name:'Quadrado dividido na diagonal',
+    desc:'Âmbar de um lado, turquesa do outro, com M e Z em grafite. As duas cores da marca viram o próprio símbolo.',
+    word:'full',
+    icon:() => { const g=uid(); return `<svg viewBox="0 0 48 48"><defs><linearGradient id="${g}" x1="0" y1="1" x2="1" y2="0"><stop offset=".5" stop-color="#FBBF24"/><stop offset=".5" stop-color="#2DD4BF"/></linearGradient></defs><rect width="48" height="48" rx="12" fill="url(#${g})"/><text x="24" y="31" text-anchor="middle" font-family="Sora" font-weight="800" font-size="20" fill="#111827">MZ</text></svg>`; } },
+  { id:'F', name:'Linha contínua M → Z',
+    desc:'Um único traço que sobe formando o M e termina no Z. Passa fluxo, continuidade e "com você até o fim".',
+    word:'full',
+    icon:() => { const g=uid(); return `<svg viewBox="0 0 50 48"><defs><linearGradient id="${g}" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="var(--a)"/><stop offset="1" stop-color="var(--t)"/></linearGradient></defs><path d="M5 38 V10 L17 26 L29 10 H45 L29 38 H45" fill="none" stroke="url(#${g})" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"/></svg>`; } },
+  { id:'G', name:'Tipográfico MZ_ (cursor)',
+    desc:'Sem ícone: as letras em Sora extrabold e um cursor âmbar piscando, como no terminal. Divertido e "dev".',
+    word:'projects',
+    icon:() => `<svg viewBox="0 0 74 48"><text x="2" y="36" font-family="Sora" font-weight="800" font-size="36" letter-spacing="-1"><tspan fill="var(--ink)">M</tspan><tspan fill="var(--t)">Z</tspan></text><rect x="58" y="36" width="12" height="5" rx="1.5" fill="var(--a)"><animate attributeName="opacity" values="1;1;0;0" keyTimes="0;.5;.5;1" dur="1.2s" repeatCount="indefinite"/></rect></svg>` },
+  { id:'H', name:'Pixel / grade',
+    desc:'M e Z desenhados com quadradinhos, como display digital. Passa tecnologia, mas com um ar descontraído.',
+    word:'projects',
+    icon:() => {
+      const M=['X...X','XX.XX','X.X.X','X...X','X...X'], Z=['XXXXX','...X.','..X..','.X...','XXXXX'];
+      let r=''; const s=4;
+      M.forEach((row,y)=>[...row].forEach((c,x)=>{ if(c==='X') r+=`<rect x="${x*s}" y="${y*s}" width="${s-.8}" height="${s-.8}" rx=".8" fill="var(--a)"/>`; }));
+      Z.forEach((row,y)=>[...row].forEach((c,x)=>{ if(c==='X') r+=`<rect x="${(x+6)*s}" y="${y*s}" width="${s-.8}" height="${s-.8}" rx=".8" fill="var(--t)"/>`; }));
+      return `<svg viewBox="0 0 44 20" style="height:34px">${r}</svg>`; } },
+];
+
+const word = {
+  full: `<div class="word"><b>Mz</b><span>Projects</span></div>`,
+  projects: `<div class="word"><span>Projects</span></div>`
+};
+const render = (l, theme) => `<div class="stage ${theme}"><div class="lockup">${l.icon()}<div>${word[l.word]}<div class="slogan">Seu negócio, nosso código</div></div></div></div>`;
+
+document.getElementById('out').innerHTML = logos.map(l => `
+  <h2>${l.id} · ${l.name}</h2><p class="lead">${l.desc}</p>
+  <div class="grid">
+    <div class="card">${render(l,'dark')}</div>
+    <div class="card">${render(l,'light')}</div>
+  </div>`).join('');
+</script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Icons from '../components/Icons.astro';
+import { waLink } from '../data/site';
+
+import data from '../content/services.json';
+const services = data.items.map((s) => ({ icon: s.icon, t: s.title, d: s.description, li: s.bullets }));
+---
+<Layout
+  title="Serviços: sites institucionais e sistemas sob medida | MzRCode"
+  description="Criação de sites institucionais, sistemas sob medida, automações, integrações e aplicativos para empresas em São Paulo, Mauá e região."
+>
+  <section class="page-hero sec-dark">
+    <div class="container">
+      <span class="eyebrow">Serviços</span>
+      <h1>O que a gente faz por você</h1>
+      <p>Do site que apresenta o seu negócio ao sistema que organiza a sua operação. Tudo feito sob medida.</p>
+    </div>
+  </section>
+
+  <section class="section sec-light">
+    <div class="container">
+      <div class="cards">
+        {services.map((s) => (
+          <article class="card">
+            <div class="icon"><Icons name={s.icon} /></div>
+            <h3>{s.t}</h3>
+            <p>{s.d}</p>
+            <ul>{s.li.map((i) => <li>{i}</li>)}</ul>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section sec-ambar cta">
+    <div class="container cta-inner">
+      <div>
+        <h2>Não achou exatamente o que precisa?</h2>
+        <p style="margin:0">Conte o seu desafio. Se a gente puder construir, a gente constrói.</p>
+      </div>
+      <a class="btn btn-dark" href={waLink('Olá! Vim pelo site da MzRCode e gostaria de conversar sobre um projeto.')} target="_blank" rel="noopener">Conversar no WhatsApp</a>
+    </div>
+  </section>
+</Layout>
